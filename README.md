@@ -29,8 +29,12 @@ Enhanced game display, e.g. card suits
 TODO:
 Create a player class
     - player starts with 300 points
-Create a card class
-    - random card from ints 1-13
+    - player name (string)
+    - Continuing playing (bool)
+Create a deck class
+    - random card from ints 1-13 (4 sets of these)
+    *- suits
+
 
 
 
@@ -45,6 +49,7 @@ if they have more than 0, ask if they want to continue game. (while loop)
 
 
 (Establish a new player with attributes (points)
+Establish our deck of cards
 print current card (random int from 1-13)
  ask for higher/lower input
  get next card value and print
