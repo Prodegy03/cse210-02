@@ -67,3 +67,14 @@ print current card (random int from 1-13)
  Give each player a name attribute
  
 >>>>>>> toDoList
+
+
+TODO List (October):
+    fix bugs as we run (possibly remove instead of pop)
+    add multiple players
+    fix drawing cards (find way to set next card as cardSelection after pass.) 
+            - could take it out of the while loop and then just draw next card...
+    validate user input
+    ? put functions into classes istead of in main?
+    Rename files and directories
+    

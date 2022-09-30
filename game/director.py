@@ -1,26 +1,21 @@
-
-
-from random import Random
+import random
 
 
 class Player:
     """A person who directs the game. 
     
-    The responsibility of a Director is to control the sequence of play.
-    
     Attributes:
     is_playing (boolean): whether or not the game is being played."""
 
-    def _init_(self):
-        """Constructs a new player.
-        
-        """
+    def __init__(self):
+        """Constructs a new player. """
         self.name = ""
         self.is_playing = True
         self.score_start = 300
 
 
 
+    #IDK IF WE USE THIS...
     def start_game(self):
         """Starts the game by running the main game loop.
         
@@ -30,6 +25,7 @@ class Player:
         while self.is_playing:
             self.get_inputs()
 
+    #IDK IF WE USE THIS...
     def get_inputs(self):
         """Ask the user if they want to keep playing.
 
@@ -45,10 +41,23 @@ class deck:
         "construct a new deck of cards"
         self.cards = [1,2,3,4,5,6,7,8,9,10,11,12,13]
 
+    #recreate card pile(deck)
+    def shuffleDeck(self):
+        self.cards = [1,2,3,4,5,6,7,8,9,10,11,12,13]
 
+    #gives us a card out of the deck
     def drawCard(self):
-        drawn = Random.randint(1,13)
-        #make check to see if card is still in pile
-        
-        return self.cards[drawn - 1]
+        lookingForCard = True
+        while(lookingForCard):    
+            drawn = random.randint(1, 13)
+            if drawn in self.cards:
+                cardWeDrew = self.cards.index.pop(self.cards.index(drawn))
+                return cardWeDrew
+            elif len(self.cards) == 0:
+                self.shuffleDeck()
+
+            
+                
+
+       
 
