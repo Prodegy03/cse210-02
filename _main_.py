@@ -1,12 +1,8 @@
-from game.objects import Player, Deck, Card
+from game.objects import Player, Deck
 def main():
     print("Hello! Welcome to Hi Lo!")
     print()
     print()
-
-    #ask user for how many players 
-    # for loop to get multiple players
-
     playersName = input("What is your name?: ")
     player1 = Player()
     player1.name = playersName
@@ -14,7 +10,7 @@ def main():
     
     currCard = cardDeck.drawCard()
     while player1.is_playing == True: 
-        print(f"{player1.name} current card is the {currCard.number} of {currCard.suit}")
+        print(f"{player1.name}'s current card is the {currCard.number} of {currCard.suit}")
         nextCard = cardDeck.drawCard()
         validated = False
         while(not validated):
@@ -30,6 +26,7 @@ def main():
             else:
                 print("If you meant to exit program, please enter \"quit\", otherwise try again... ")
         if question == "quit":
+            player1.is_playing = False
             break
         print(f"The next card is the {nextCard.number} of {nextCard.suit}...")
         player1.changePlayerScore(result)
@@ -37,7 +34,12 @@ def main():
         cardDeck.checkForShuffle()
         currCard = nextCard
         print()
+        keepPlaying = input("Would you like to keep playing? (type \"quit\" to quit): ")
+        if keepPlaying == "quit":
+            player1.is_playing = False
+
     print("Thanks for playing the game!")
+    print(f"{player1.name}, you ended the game with {player1.score} points.")
 
 
 
