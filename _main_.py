@@ -1,5 +1,4 @@
-from game.director import Player, deck
-import imp
+from game.objects import Player, Deck, Card
 def main():
     print("Hello! Welcome to Hi Lo!")
     print()
@@ -11,45 +10,26 @@ def main():
     playersName = input("What is your name?: ")
     player1 = Player()
     player1.name = playersName
-    cardDeck = deck()
+    cardDeck = Deck()
     
-
+    currCard = cardDeck.drawCard()
     while player1.is_playing == True: 
-        cardSelection = cardDeck.drawCard()
-        print(f"The current card is {cardSelection}")
-
+        print(f"{player1.name} current card is the {currCard.number} of {currCard.suit}")        #add current HP?
         question = input("Do you think the next one is Higher or Lower? (h/l): ")
         #validate that input
         nextCard = cardDeck.drawCard()
         if question == "h":
-            result = cardCompareHigher(cardSelection, nextCard)
+            result = currCard.cardCompareHigher(nextCard)
         else:
-            result = cardCompareLower(cardSelection, nextCard)
-
-        changePlayerScore(result, player1)
-        checkPlayerPoints(player1)
-
+            result = currCard.cardCompareLower(nextCard)
+        print(f"The next card is the {nextCard.number} of {nextCard.suit}...")
+        player1.changePlayerScore(result)
+        player1.checkPlayerPoints()
+        cardDeck.checkForShuffle()
+        currCard = nextCard
+        print()
     print("Thanks for playing the game!")
 
-def cardCompareHigher(firstCard, secondCard):
-    if firstCard > secondCard: return True
-    else: return False
 
-def cardCompareLower(firstCard, secondCard):
-    if firstCard < secondCard: return True
-    else: return False
-
-def changePlayerScore(outcome, player):
-    if outcome:
-        player.score_start += 100
-    else:
-        player.score_start -= 75
-
-def checkPlayerPoints(player):
-    if player.score_start <= 0:
-        player.is_playing = False
-    else:
-        return
-        
 
 main()
