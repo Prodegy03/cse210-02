@@ -33,8 +33,12 @@ Enhanced game display, e.g. card suits
 TODO:
 Create a player class
     - player starts with 300 points
-Create a card class
-    - random card from ints 1-13
+    - player name (string)
+    - Continuing playing (bool)
+Create a deck class
+    - random card from ints 1-13 (4 sets of these)
+    *- suits
+
 
 
 
@@ -49,6 +53,7 @@ if they have more than 0, ask if they want to continue game. (while loop)
 
 
 (Establish a new player with attributes (points)
+Establish our deck of cards
 print current card (random int from 1-13)
  ask for higher/lower input
  get next card value and print
@@ -65,3 +70,18 @@ print current card (random int from 1-13)
  Validate input (easy)
  Give each player a name attribute
  
+<<<<<<< HEAD
+=======
+>>>>>>> toDoList
+
+
+TODO List (October):
+    fix bugs as we run (possibly remove instead of pop)
+    add multiple players
+    fix drawing cards (find way to set next card as cardSelection after pass.) 
+            - could take it out of the while loop and then just draw next card...
+    validate user input
+    ? put functions into classes istead of in main?
+    Rename files and directories
+    
+>>>>>>> f088d3f92b90eb16fe908367f434e46fe85d03e4
