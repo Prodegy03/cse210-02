@@ -51,7 +51,7 @@ class deck:
         while(lookingForCard):    
             drawn = random.randint(1, 13)
             if drawn in self.cards:
-                cardWeDrew = self.cards.index.pop(self.cards.index(drawn))
+                cardWeDrew = self.cards.pop(self.cards.index(drawn))
                 return cardWeDrew
             elif len(self.cards) == 0:
                 self.shuffleDeck()
