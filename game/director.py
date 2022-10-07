@@ -39,11 +39,28 @@ class deck:
 
     def __init__(self):
         "construct a new deck of cards"
-        self.cards = [1,2,3,4,5,6,7,8,9,10,11,12,13]
+        self.cards = []
+        for i in range(1,5):
+            for j in range(1,14):
+                self.cardSingle = card()
+                self.cardSingle.number = j
+                if i == 1:
+                    self.cardSingle.suit == "hearts"
+                elif i == 2:
+                    self.cardSingle.suit == "diamonds"
+                elif i == 3:
+                    self.cardSingle.suit == "spades"
+                elif i == 4:
+                    self.cardSingle.suit == "clubs"
+                self.cards.append(self.cardSingle)
+        random.shuffle(self.cards)
 
     #recreate card pile(deck)
     def shuffleDeck(self):
-        self.cards = [1,2,3,4,5,6,7,8,9,10,11,12,13]
+        if len(self.cards)<12:
+            print("Everyday I'm shuffling!")
+            self.__init__()
+            
 
     #gives us a card out of the deck
     def drawCard(self):
@@ -55,6 +72,13 @@ class deck:
                 return cardWeDrew
             elif len(self.cards) == 0:
                 self.shuffleDeck()
+
+class card:
+    def __init__(self):
+        "construct a new deck of cards"
+        self.number = 0
+        self.suit = ""
+
 
             
                 
